@@ -1,0 +1,339 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #241611;
+    --surface: #FBEFD9;
+    --surface-soft: #F3E2C0;
+    --accent: #C97A2E;
+    --accent-deep: #8C2F22;
+    --ink: #2B1B12;
+    --ink-soft: #7A6650;
+    --line: #D8C4A0;
+    --good: #4B6B3E;
+  }
+  *{ box-sizing: border-box; }
+  body{ margin:0; }
+  .wrap{
+    min-height: 100%;
+    background:
+      radial-gradient(1200px 500px at 50% -10%, #3a2416 0%, var(--bg) 60%);
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--ink);
+    padding: 28px 16px 60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .brand{
+    color: var(--surface);
+    text-align:center;
+    margin-bottom: 18px;
+  }
+  .brand .stall{
+    font-family:'Do Hyeon', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: var(--surface);
+    margin: 0;
+  }
+  .brand .sub{
+    font-size: 13px;
+    color: #C9AE87;
+    margin: 4px 0 0;
+  }
+  .card{
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: var(--surface);
+    border-radius: 4px 4px 18px 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    padding: 26px 22px 24px;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    top:-11px; left:0; right:0; height:22px;
+    background: var(--surface);
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M0,12 L0,6 Q4,0 8,6 T16,6 T24,6 T32,6 T40,6 T48,6 T56,6 T64,6 T72,6 T80,6 T88,6 T96,6 T104,6 L104,12 Z'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M0,12 L0,6 Q4,0 8,6 T16,6 T24,6 T32,6 T40,6 T48,6 T56,6 T64,6 T72,6 T80,6 T88,6 T96,6 T104,6 L104,12 Z'/></svg>");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+  h1.title{
+    font-family:'Do Hyeon', sans-serif;
+    font-size: 22px;
+    margin: 4px 0 6px;
+    color: var(--accent-deep);
+  }
+  p.desc{
+    font-size: 14px;
+    line-height:1.6;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+  }
+  label{
+    display:block;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 16px 0 6px;
+    color: var(--ink);
+  }
+  label .opt{ font-weight:400; color: var(--ink-soft); }
+  input[type=text], input[type=tel], textarea{
+    width: 100%;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  input:focus, textarea:focus{
+    outline: none;
+    border-color: var(--accent);
+  }
+  textarea{ resize: vertical; min-height: 64px; }
+  .radio-row{
+    display:flex;
+    gap:8px;
+    flex-wrap: wrap;
+  }
+  .radio-row label.pill{
+    flex: 1 1 auto;
+    margin:0;
+    text-align:center;
+    padding: 10px 8px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    cursor:pointer;
+    transition: .15s;
+  }
+  .radio-row input{ display:none; }
+  .radio-row label.pill:has(input:checked){
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .consent-box{
+    margin-top: 18px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .consent-text{
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .consent-text strong{ color: var(--ink); }
+  .consent-check{
+    display:flex;
+    align-items:center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0;
+    cursor:pointer;
+  }
+  .consent-check input{ width:16px; height:16px; }
+  button.submit{
+    width:100%;
+    margin-top: 18px;
+    padding: 14px;
+    border:none;
+    border-radius: 12px;
+    background: var(--accent-deep);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    transition: transform .1s;
+  }
+  button.submit:active{ transform: scale(.98); }
+  button.submit:disabled{ opacity:.5; }
+  .error-msg{
+    color: var(--accent-deep);
+    font-size: 12.5px;
+    margin-top: 6px;
+    display:none;
+  }
+  .done{
+    text-align:center;
+    padding: 20px 4px 6px;
+  }
+  .done .emoji{ font-size: 40px; }
+  .done h2{
+    font-family:'Do Hyeon', sans-serif;
+    color: var(--accent-deep);
+    font-size: 20px;
+    margin: 10px 0 6px;
+  }
+  .done p{ color: var(--ink-soft); font-size: 14px; line-height:1.6; margin:0; }
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+/* ============================================================
+   구글 시트 연동 주소
+   Apps Script 배포 후 나온 '.../exec' 로 끝나는 URL을
+   아래 따옴표 안에 그대로 붙여넣으세요.
+   ============================================================ */
+const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwwz94uc1Dug8qhItbKl6cV9K4kMg2zxMYShSUcvYkTNyJM0mWujZUnxv6hO6iRnuvu/exec';
+
+const app = document.getElementById('app');
+let view = 'form'; // form | done
+
+function render(){
+  if(view === 'form') return renderForm();
+  if(view === 'done') return renderDone();
+}
+
+function renderForm(){
+  app.innerHTML = `
+    <div class="brand">
+      <p class="stall">명품호떡</p>
+      <p class="sub">시장 단골손님을 위한 보험 상담 신청</p>
+    </div>
+    <div class="card">
+      <h1 class="title">편하게 여쭤보세요</h1>
+      <p class="desc">호떡 사장님이 보험 상담도 도와드려요.<br/>남겨주시면 편하신 시간에 연락드릴게요.</p>
+
+      <label>성함</label>
+      <input type="text" id="f-name" placeholder="홍길동" autocomplete="off" />
+
+      <label>연락처 <span class="opt">(필수)</span></label>
+      <input type="tel" id="f-phone" placeholder="010-1234-5678" autocomplete="off" />
+      <div class="error-msg" id="phone-err">연락처를 입력해주세요</div>
+
+      <label>편하신 연락 시간대</label>
+      <div class="radio-row" id="f-time">
+        ${['오전','오후','저녁','상관없어요'].map((t,i)=>`
+          <label class="pill">
+            <input type="radio" name="time" value="${t}" ${i===3?'checked':''}/>
+            <span>${t}</span>
+          </label>
+        `).join('')}
+      </div>
+
+      <label>궁금하신 점 <span class="opt">(선택)</span></label>
+      <textarea id="f-memo" placeholder="예: 실비보험 가입한 지 오래돼서 점검받고 싶어요" autocomplete="off"></textarea>
+
+      <div class="consent-box">
+        <p class="consent-text">
+          <strong>[필수] 개인정보 수집·이용 동의</strong><br/>
+          · 수집 목적: 보험 상담을 위한 연락<br/>
+          · 수집 항목: 성명, 연락처, 상담 희망 시간, 상담내용<br/>
+          · 보유 기간: 상담 완료 후 6개월 뒤 파기<br/>
+          · 동의를 거부하실 수 있으며, 거부 시 상담 신청이 제한됩니다.
+        </p>
+        <label class="consent-check">
+          <input type="checkbox" id="f-consent" />
+          위 내용에 동의합니다
+        </label>
+      </div>
+      <div class="error-msg" id="consent-err">개인정보 수집·이용에 동의해주셔야 신청할 수 있어요</div>
+
+      <button class="submit" id="f-submit">상담 신청하기</button>
+    </div>
+  `;
+  document.getElementById('f-submit').onclick = submitForm;
+  document.getElementById('f-phone').addEventListener('input', (e) => {
+    e.target.value = formatPhone(e.target.value);
+  });
+}
+
+function formatPhone(raw){
+  const digits = String(raw).replace(/[^0-9]/g, '').slice(0, 11);
+  if(digits.length < 4) return digits;
+  if(digits.startsWith('02')){
+    if(digits.length <= 5) return digits.slice(0,2) + '-' + digits.slice(2);
+    if(digits.length <= 9) return digits.slice(0,2) + '-' + digits.slice(2,5) + '-' + digits.slice(5);
+    return digits.slice(0,2) + '-' + digits.slice(2,6) + '-' + digits.slice(6,10);
+  }
+  if(digits.length <= 7) return digits.slice(0,3) + '-' + digits.slice(3);
+  if(digits.length <= 10) return digits.slice(0,3) + '-' + digits.slice(3,6) + '-' + digits.slice(6);
+  return digits.slice(0,3) + '-' + digits.slice(3,7) + '-' + digits.slice(7,11);
+}
+
+function isValidPhone(value){
+  return /^0\d{1,2}-\d{3,4}-\d{4}$/.test(value);
+}
+
+async function submitForm(){
+  const name = document.getElementById('f-name').value.trim();
+  const phone = formatPhone(document.getElementById('f-phone').value.trim());
+  const time = document.querySelector('input[name=time]:checked')?.value || '상관없어요';
+  const memo = document.getElementById('f-memo').value.trim();
+  const consented = document.getElementById('f-consent').checked;
+  const phoneErr = document.getElementById('phone-err');
+  const consentErr = document.getElementById('consent-err');
+
+  phoneErr.style.display = 'none';
+  consentErr.style.display = 'none';
+
+  if(!phone){
+    phoneErr.textContent = '연락처를 입력해주세요';
+    phoneErr.style.display = 'block';
+    return;
+  }
+  if(!isValidPhone(phone)){
+    phoneErr.textContent = '올바른 전화번호 형식이 아니에요 (예: 010-1234-5678)';
+    phoneErr.style.display = 'block';
+    return;
+  }
+  if(!consented){
+    consentErr.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('f-submit');
+  btn.disabled = true;
+  btn.textContent = '보내는 중...';
+
+  try{
+    const res = await fetch(SHEET_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        action: 'create',
+        name: name || '(성함 미입력)',
+        phone, time, memo
+      })
+    });
+    const data = await res.json();
+    if(!data.ok){ throw new Error('저장 실패'); }
+    view = 'done';
+    render();
+  }catch(e){
+    btn.disabled = false;
+    btn.textContent = '상담 신청하기';
+    consentErr.textContent = '전송에 실패했어요. 다시 시도해주세요.';
+    consentErr.style.display = 'block';
+  }
+}
+
+function renderDone(){
+  app.innerHTML = `
+    <div class="card done">
+      <div class="emoji">🍯</div>
+      <h2>신청 완료!</h2>
+      <p>말씀해주신 시간에 맞춰<br/>편하게 연락드릴게요. 감사합니다.</p>
+    </div>
+  `;
+}
+
+render();
+</script>
