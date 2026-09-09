@@ -1,18 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- 모바일 반응형 핵심 -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-  <meta name="theme-color" content="#241611">
-  <meta name="description" content="명품호떡 보험 상담 신청">
-
-  <title>명품호떡 - 보험 상담 신청</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>명품호떡 | 보험 상담 신청</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,953 +18,406 @@
       --ink: #2B1B12;
       --ink-soft: #7A6650;
       --line: #D8C4A0;
-    }
+      --good: #4B6B3E;
 
-    *{
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+      --page-pad-x: clamp(12px, 4vw, 32px);
+      --page-pad-y: clamp(16px, 5vh, 48px);
+      --card-max: min(100%, 420px);
+      --card-pad: clamp(18px, 4.5vw, 32px);
+      --title: clamp(20px, 5.4vw, 26px);
+      --stall: clamp(24px, 7vw, 36px);
+      --tap: 44px;
     }
-
-    html{
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
-      background: var(--bg);
-    }
-
-    body{
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      background: var(--bg);
-    }
-
-    input,
-    textarea,
-    button{
-      font: inherit;
-    }
-
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{ margin:0; }
     .wrap{
-      width: 100%;
-      min-height: 100vh;
+      min-height: 100%;
       min-height: 100dvh;
-
       background:
-        radial-gradient(
-          1200px 500px at 50% -10%,
-          #3a2416 0%,
-          var(--bg) 60%
-        );
-
-      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
-                   'Segoe UI', sans-serif;
-
+        radial-gradient(1200px 500px at 50% -10%, #3a2416 0%, var(--bg) 60%);
+      font-family: 'Noto Sans KR', -apple-system, sans-serif;
       color: var(--ink);
-
-      padding:
-        max(28px, env(safe-area-inset-top))
-        16px
-        max(40px, env(safe-area-inset-bottom))
-        16px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: max(var(--page-pad-y), env(safe-area-inset-top))
+               max(var(--page-pad-x), env(safe-area-inset-right))
+               max(60px, env(safe-area-inset-bottom))
+               max(var(--page-pad-x), env(safe-area-inset-left));
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content: flex-start;
     }
-
-    /* 브랜드 */
     .brand{
-      width: 100%;
-      max-width: 400px;
       color: var(--surface);
-      text-align: center;
-      margin-bottom: 18px;
+      text-align:center;
+      margin-bottom: clamp(12px, 3vw, 22px);
+      width: 100%;
+      max-width: var(--card-max);
     }
-
     .brand .stall{
-      font-family: 'Do Hyeon', sans-serif;
-      font-size: clamp(28px, 8vw, 34px);
+      font-family:'Do Hyeon', sans-serif;
+      font-size: var(--stall);
       letter-spacing: 1px;
       color: var(--surface);
       margin: 0;
-      line-height: 1.2;
+      line-height: 1.25;
     }
-
     .brand .sub{
-      font-size: clamp(12px, 3.5vw, 13px);
+      font-size: clamp(12px, 3.4vw, 14px);
       color: #C9AE87;
-      margin: 5px 0 0;
-      line-height: 1.5;
+      margin: 4px 0 0;
+      line-height: 1.45;
     }
-
-    /* 카드 */
     .card{
       position: relative;
       width: 100%;
-      max-width: 400px;
-
+      max-width: var(--card-max);
       background: var(--surface);
-
       border-radius: 4px 4px 18px 18px;
-
-      box-shadow:
-        0 18px 40px rgba(0,0,0,.35);
-
-      padding: 26px 22px 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      padding: calc(var(--card-pad) + 6px) var(--card-pad) var(--card-pad);
     }
-
-    /* 카드 위 물결 */
     .card::before{
-      content: "";
-      position: absolute;
-
-      top: -11px;
-      left: 0;
-      right: 0;
-
-      height: 22px;
-
+      content:"";
+      position:absolute;
+      top:-11px; left:0; right:0; height:22px;
       background: var(--surface);
-
       -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M0,12 L0,6 Q4,0 8,6 T16,6 T24,6 T32,6 T40,6 T48,6 T56,6 T64,6 T72,6 T80,6 T88,6 T96,6 T104,6 L104,12 Z'/></svg>");
-
       mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'><path d='M0,12 L0,6 Q4,0 8,6 T16,6 T24,6 T32,6 T40,6 T48,6 T56,6 T64,6 T72,6 T80,6 T88,6 T96,6 T104,6 L104,12 Z'/></svg>");
-
       -webkit-mask-size: 100% 100%;
       mask-size: 100% 100%;
     }
-
-    /* 제목 */
     h1.title{
-      font-family: 'Do Hyeon', sans-serif;
-      font-size: clamp(21px, 6vw, 24px);
+      font-family:'Do Hyeon', sans-serif;
+      font-size: var(--title);
       margin: 4px 0 6px;
       color: var(--accent-deep);
       line-height: 1.3;
     }
-
     p.desc{
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: clamp(13px, 3.6vw, 15px);
+      line-height:1.6;
       color: var(--ink-soft);
-      margin: 0 0 20px;
+      margin: 0 0 clamp(16px, 4vw, 22px);
+      word-break: keep-all;
     }
-
-    /* 라벨 */
     label{
-      display: block;
-      font-size: 13px;
+      display:block;
+      font-size: clamp(12.5px, 3.4vw, 14px);
       font-weight: 700;
-      margin: 16px 0 6px;
+      margin: clamp(14px, 3.5vw, 18px) 0 6px;
       color: var(--ink);
     }
-
-    label .opt{
-      font-weight: 400;
-      color: var(--ink-soft);
-    }
-
-    /* 입력 */
-    input[type=text],
-    input[type=tel],
-    textarea{
-      display: block;
+    label .opt{ font-weight:400; color: var(--ink-soft); }
+    input[type=text], input[type=tel], textarea{
       width: 100%;
-
       border: 1.5px solid var(--line);
-
       background: #fff;
-
       border-radius: 10px;
-
       padding: 12px 13px;
-
       font-size: 16px;
       font-family: inherit;
       color: var(--ink);
-
-      -webkit-appearance: none;
-      appearance: none;
-
-      transition:
-        border-color .15s,
-        box-shadow .15s;
+      min-height: var(--tap);
     }
-
-    input[type=text],
-    input[type=tel]{
-      height: 48px;
-    }
-
-    input::placeholder,
-    textarea::placeholder{
-      color: #B6A58F;
-    }
-
-    input:focus,
-    textarea:focus{
+    input:focus, textarea:focus{
       outline: none;
       border-color: var(--accent);
-
-      box-shadow:
-        0 0 0 3px rgba(201,122,46,.12);
     }
-
-    textarea{
-      resize: vertical;
-      min-height: 90px;
-      line-height: 1.5;
-    }
-
-    /* 연락 시간 */
+    textarea{ resize: vertical; min-height: 72px; }
     .radio-row{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:8px;
     }
-
     .radio-row label.pill{
-      margin: 0;
-
-      min-height: 44px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 9px 8px;
-
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0;
+      text-align:center;
+      padding: 10px 8px;
+      min-height: var(--tap);
       border-radius: 999px;
-
       border: 1.5px solid var(--line);
-
       background: #fff;
-
-      font-size: 13px;
+      font-size: clamp(12.5px, 3.3vw, 14px);
       font-weight: 500;
-
       color: var(--ink-soft);
-
-      cursor: pointer;
-
-      transition:
-        background .15s,
-        border-color .15s,
-        color .15s;
-
+      cursor:pointer;
+      transition: .15s;
+      -webkit-user-select: none;
       user-select: none;
     }
-
-    .radio-row input{
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
+    .radio-row input{ display:none; }
     .radio-row label.pill:has(input:checked){
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
     }
-
-    /* 개인정보 동의 */
     .consent-box{
-      margin-top: 18px;
-
+      margin-top: clamp(14px, 4vw, 20px);
       background: var(--surface-soft);
-
       border: 1px solid var(--line);
-
       border-radius: 10px;
-
-      padding: 12px 14px;
+      padding: clamp(10px, 3vw, 14px) clamp(12px, 3.2vw, 16px);
     }
-
     .consent-text{
-      font-size: 12px;
-      line-height: 1.65;
-
+      font-size: clamp(11.5px, 3.1vw, 13px);
+      line-height: 1.6;
       color: var(--ink-soft);
-
-      margin: 0 0 10px;
+      margin: 0 0 8px;
+      word-break: keep-all;
     }
-
-    .consent-text strong{
-      color: var(--ink);
-    }
-
+    .consent-text strong{ color: var(--ink); }
     .consent-check{
-      display: flex;
-      align-items: center;
-
+      display:flex;
+      align-items:center;
       gap: 7px;
-
-      font-size: 13px;
+      font-size: clamp(12.5px, 3.4vw, 14px);
       font-weight: 700;
-
       margin: 0;
-
+      cursor:pointer;
+      min-height: var(--tap);
+    }
+    .consent-check input{ width:18px; height:18px; flex-shrink:0; }
+    button.submit{
+      width:100%;
+      margin-top: clamp(14px, 4vw, 20px);
+      padding: 14px;
+      min-height: var(--tap);
+      border:none;
+      border-radius: 12px;
+      background: var(--accent-deep);
+      color: #fff;
+      font-size: clamp(15px, 4vw, 17px);
+      font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif;
       cursor: pointer;
-
-      line-height: 1.4;
+      transition: transform .1s;
     }
-
-    .consent-check input{
-      width: 18px;
-      height: 18px;
-
-      margin: 0;
-
-      flex: 0 0 auto;
-
-      accent-color: var(--accent-deep);
-    }
-
-    /* 에러 */
+    button.submit:active{ transform: scale(.98); }
+    button.submit:disabled{ opacity:.5; }
     .error-msg{
       color: var(--accent-deep);
-
-      font-size: 12.5px;
-
+      font-size: clamp(12px, 3.2vw, 13px);
       margin-top: 6px;
-
-      line-height: 1.5;
-
-      display: none;
+      display:none;
     }
-
-    /* 신청 버튼 */
-    button.submit{
-      width: 100%;
-
-      min-height: 52px;
-
-      margin-top: 18px;
-
-      padding: 14px;
-
-      border: none;
-
-      border-radius: 12px;
-
-      background: var(--accent-deep);
-
-      color: #fff;
-
-      font-size: 16px;
-      font-weight: 700;
-
-      font-family: 'Noto Sans KR', sans-serif;
-
-      cursor: pointer;
-
-      transition:
-        transform .1s,
-        opacity .15s;
-    }
-
-    button.submit:active{
-      transform: scale(.98);
-    }
-
-    button.submit:disabled{
-      opacity: .5;
-      cursor: default;
-    }
-
-    /* 완료 */
     .done{
-      text-align: center;
-
-      padding:
-        28px 10px 30px;
+      text-align:center;
+      padding: clamp(16px, 4vw, 24px) 4px 6px;
     }
-
-    .done .emoji{
-      font-size: 40px;
-      line-height: 1;
-    }
-
+    .done .emoji{ font-size: clamp(36px, 8vw, 48px); }
     .done h2{
-      font-family: 'Do Hyeon', sans-serif;
-
+      font-family:'Do Hyeon', sans-serif;
       color: var(--accent-deep);
-
-      font-size: 22px;
-
-      margin: 12px 0 7px;
+      font-size: clamp(18px, 5vw, 24px);
+      margin: 10px 0 6px;
     }
+    .done p{ color: var(--ink-soft); font-size: clamp(13px, 3.6vw, 15px); line-height:1.6; margin:0; word-break: keep-all; }
 
-    .done p{
-      color: var(--ink-soft);
-
-      font-size: 14px;
-
-      line-height: 1.6;
-
-      margin: 0;
-    }
-
-    /* 작은 휴대폰 */
-    @media (max-width: 360px){
-
-      .wrap{
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      .card{
-        padding:
-          24px 17px 21px;
-      }
-
-      .brand{
-        margin-bottom: 16px;
-      }
-
-      .brand .stall{
-        font-size: 28px;
-      }
-
-      .brand .sub{
-        font-size: 12px;
-      }
-
-      h1.title{
-        font-size: 21px;
-      }
-
-      p.desc{
-        font-size: 13px;
-      }
-
+    @media (min-width: 480px){
+      :root{ --card-max: 440px; }
       .radio-row{
-        gap: 6px;
+        grid-template-columns: repeat(4, 1fr);
       }
+    }
 
+    @media (min-width: 768px){
+      :root{
+        --card-max: 480px;
+        --card-pad: 32px;
+      }
+      .wrap{
+        justify-content: center;
+        padding-bottom: max(48px, env(safe-area-inset-bottom));
+      }
+      .brand{ margin-bottom: 22px; }
+    }
+
+    @media (min-width: 1024px){
+      :root{ --card-max: 520px; }
+      .card{ box-shadow: 0 24px 56px rgba(0,0,0,.4); }
+    }
+
+    @media (max-width: 359px){
       .radio-row label.pill{
         font-size: 12px;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-
-      .consent-box{
-        padding: 11px 12px;
-      }
-
-      .consent-text{
-        font-size: 11.5px;
+        padding: 10px 4px;
       }
     }
 
-    /* 태블릿/PC */
-    @media (min-width: 600px){
-
+    @media (max-height: 500px) and (orientation: landscape){
       .wrap{
-        padding-top: 48px;
-        padding-bottom: 70px;
+        justify-content: flex-start;
+        padding-top: 16px;
+        padding-bottom: 24px;
       }
-
-      .brand{
-        margin-bottom: 22px;
-      }
-
-      .card{
-        max-width: 420px;
-        padding: 30px 26px 28px;
-      }
+      .brand .stall{ font-size: 22px; }
+      .brand{ margin-bottom: 10px; }
     }
 
-    /* 모션 최소화 설정 */
     @media (prefers-reduced-motion: reduce){
-
-      *,
-      *::before,
-      *::after{
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
+      *{ transition: none !important; }
+      button.submit:active{ transform: none; }
     }
   </style>
-
 </head>
-
 <body>
+  <div class="wrap" id="app"></div>
 
-<div class="wrap" id="app"></div>
+  <script>
+  /* ============================================================
+     구글 시트 연동 주소
+     Apps Script 배포 후 나온 '.../exec' 로 끝나는 URL을
+     아래 따옴표 안에 그대로 붙여넣으세요.
+     ============================================================ */
+  const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwwz94uc1Dug8qhItbKl6cV9K4kMg2zxMYShSUcvYkTNyJM0mWujZUnxv6hO6iRnuvu/exec';
 
-<script>
-/* ============================================================
-   구글 시트 연동 주소
-   ============================================================ */
+  const app = document.getElementById('app');
+  let view = 'form'; // form | done
 
-const SHEET_API_URL =
-  'https://script.google.com/macros/s/AKfycbwwz94uc1Dug8qhItbKl6cV9K4kMg2zxMYShSUcvYkTNyJM0mWujZUnxv6hO6iRnuvu/exec';
-
-
-const app = document.getElementById('app');
-
-let view = 'form';
-
-
-function render(){
-
-  if(view === 'form'){
-    return renderForm();
+  function render(){
+    if(view === 'form') return renderForm();
+    if(view === 'done') return renderDone();
   }
 
-  if(view === 'done'){
-    return renderDone();
-  }
-
-}
-
-
-function renderForm(){
-
-  app.innerHTML = `
-
-    <div class="brand">
-
-      <p class="stall">
-        명품호떡
-      </p>
-
-      <p class="sub">
-        시장 단골손님을 위한 보험 상담 신청
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h1 class="title">
-        편하게 여쭤보세요
-      </h1>
-
-      <p class="desc">
-        호떡 사장님이 보험 상담도 도와드려요.<br>
-        남겨주시면 편하신 시간에 연락드릴게요.
-      </p>
-
-
-      <label>
-        성함
-      </label>
-
-      <input
-        type="text"
-        id="f-name"
-        placeholder="홍길동"
-        autocomplete="off"
-      />
-
-
-      <label>
-        연락처 <span class="opt">(필수)</span>
-      </label>
-
-      <input
-        type="tel"
-        id="f-phone"
-        placeholder="010-1234-5678"
-        autocomplete="tel"
-        inputmode="numeric"
-      />
-
-      <div
-        class="error-msg"
-        id="phone-err">
+  function renderForm(){
+    app.innerHTML = `
+      <div class="brand">
+        <p class="stall">명품호떡</p>
+        <p class="sub">시장 단골손님을 위한 보험 상담 신청</p>
       </div>
+      <div class="card">
+        <h1 class="title">편하게 여쭤보세요</h1>
+        <p class="desc">호떡 사장님이 보험 상담도 도와드려요.<br/>남겨주시면 편하신 시간에 연락드릴게요.</p>
 
+        <label for="f-name">성함</label>
+        <input type="text" id="f-name" placeholder="홍길동" autocomplete="name" />
 
-      <label>
-        편하신 연락 시간대
-      </label>
+        <label for="f-phone">연락처 <span class="opt">(필수)</span></label>
+        <input type="tel" id="f-phone" placeholder="010-1234-5678" autocomplete="tel" inputmode="numeric" />
+        <div class="error-msg" id="phone-err">연락처를 입력해주세요</div>
 
-      <div
-        class="radio-row"
-        id="f-time"
-      >
-
-        ${
-          ['오전','오후','저녁','상관없어요']
-          .map((t,i)=>`
-
+        <label>편하신 연락 시간대</label>
+        <div class="radio-row" id="f-time">
+          ${['오전','오후','저녁','상관없어요'].map((t,i)=>`
             <label class="pill">
-
-              <input
-                type="radio"
-                name="time"
-                value="${t}"
-                ${i === 3 ? 'checked' : ''}
-              />
-
+              <input type="radio" name="time" value="${t}" ${i===3?'checked':''}/>
               <span>${t}</span>
-
             </label>
+          `).join('')}
+        </div>
 
-          `).join('')
-        }
+        <label for="f-memo">궁금하신 점 <span class="opt">(선택)</span></label>
+        <textarea id="f-memo" placeholder="예: 실비보험 가입한 지 오래돼서 점검받고 싶어요" autocomplete="off"></textarea>
 
+        <div class="consent-box">
+          <p class="consent-text">
+            <strong>[필수] 개인정보 수집·이용 동의</strong><br/>
+            · 수집 목적: 보험 상담을 위한 연락<br/>
+            · 수집 항목: 성명, 연락처, 상담 희망 시간, 상담내용<br/>
+            · 보유 기간: 상담 완료 후 6개월 뒤 파기<br/>
+            · 동의를 거부하실 수 있으며, 거부 시 상담 신청이 제한됩니다.
+          </p>
+          <label class="consent-check">
+            <input type="checkbox" id="f-consent" />
+            위 내용에 동의합니다
+          </label>
+        </div>
+        <div class="error-msg" id="consent-err">개인정보 수집·이용에 동의해주셔야 신청할 수 있어요</div>
+
+        <button class="submit" id="f-submit">상담 신청하기</button>
       </div>
-
-
-      <label>
-        궁금하신 점
-        <span class="opt">(선택)</span>
-      </label>
-
-      <textarea
-        id="f-memo"
-        placeholder="예: 실비보험 가입한 지 오래돼서 점검받고 싶어요"
-        autocomplete="off"
-      ></textarea>
-
-```
-  <div class="consent-box">
-
-    <p class="consent-text">
-
-      <strong>
-        [필수] 개인정보 수집·이용 동의
-      </strong>
-
-      <br>
-
-      · 수집 목적: 보험 상담을 위한 연락
-      <br>
-
-      · 수집 항목: 성명, 연락처, 상담 희망 시간, 상담내용
-      <br>
-
-      · 보유 기간: 상담 완료 후 6개월 뒤 파기
-      <br>
-
-      · 동의를 거부하실 수 있으며,
-      거부 시 상담 신청이 제한됩니다.
-
-    </p>
-
-
-    <label class="consent-check">
-
-      <input
-        type="checkbox"
-        id="f-consent"
-      />
-
-      <span>
-        위 내용에 동의합니다
-      </span>
-
-    </label>
-
-  </div>
-
-
-  <div
-    class="error-msg"
-    id="consent-err">
-  </div>
-
-
-  <button
-    type="button"
-    class="submit"
-    id="f-submit"
-  >
-    상담 신청하기
-  </button>
-
-</div>
-```
-
-`;
-
-document
-.getElementById('f-submit')
-.onclick = submitForm;
-
-document
-.getElementById('f-phone')
-.addEventListener('input', (e) => {
-
-```
-  e.target.value =
-    formatPhone(e.target.value);
-
-});
-```
-
-}
-
-function formatPhone(raw){
-
-const digits =
-String(raw)
-.replace(/[^0-9]/g, '')
-.slice(0, 11);
-
-if(digits.length < 4){
-return digits;
-}
-
-if(digits.startsWith('02')){
-
-```
-if(digits.length <= 5){
-
-  return digits.slice(0,2)
-    + '-'
-    + digits.slice(2);
-
-}
-
-if(digits.length <= 9){
-
-  return digits.slice(0,2)
-    + '-'
-    + digits.slice(2,5)
-    + '-'
-    + digits.slice(5);
-
-}
-
-return digits.slice(0,2)
-  + '-'
-  + digits.slice(2,6)
-  + '-'
-  + digits.slice(6,10);
-```
-
-}
-
-if(digits.length <= 7){
-
-```
-return digits.slice(0,3)
-  + '-'
-  + digits.slice(3);
-```
-
-}
-
-if(digits.length <= 10){
-
-```
-return digits.slice(0,3)
-  + '-'
-  + digits.slice(3,6)
-  + '-'
-  + digits.slice(6);
-```
-
-}
-
-return digits.slice(0,3)
-+ '-'
-+ digits.slice(3,7)
-+ '-'
-+ digits.slice(7,11);
-
-}
-
-function isValidPhone(value){
-
-return /^0\d{1,2}-\d{3,4}-\d{4}$/.test(value);
-
-}
-
-async function submitForm(){
-
-const name =
-document
-.getElementById('f-name')
-.value
-.trim();
-
-const phone =
-formatPhone(
-document
-.getElementById('f-phone')
-.value
-.trim()
-);
-
-const time =
-document
-.querySelector('input[name=time]:checked')
-?.value
-|| '상관없어요';
-
-const memo =
-document
-.getElementById('f-memo')
-.value
-.trim();
-
-const consented =
-document
-.getElementById('f-consent')
-.checked;
-
-const phoneErr =
-document.getElementById('phone-err');
-
-const consentErr =
-document.getElementById('consent-err');
-
-phoneErr.style.display = 'none';
-consentErr.style.display = 'none';
-
-if(!phone){
-
-```
-phoneErr.textContent =
-  '연락처를 입력해주세요';
-
-phoneErr.style.display =
-  'block';
-
-return;
-```
-
-}
-
-if(!isValidPhone(phone)){
-
-```
-phoneErr.textContent =
-  '올바른 전화번호 형식이 아니에요 (예: 010-1234-5678)';
-
-phoneErr.style.display =
-  'block';
-
-return;
-```
-
-}
-
-if(!consented){
-
-```
-consentErr.textContent =
-  '개인정보 수집·이용에 동의해주셔야 신청할 수 있어요';
-
-consentErr.style.display =
-  'block';
-
-return;
-```
-
-}
-
-const btn =
-document.getElementById('f-submit');
-
-btn.disabled = true;
-
-btn.textContent =
-'보내는 중...';
-
-try{
-
-```
-const res =
-  await fetch(
-    SHEET_API_URL,
-    {
-      method: 'POST',
-
-      headers: {
-        'Content-Type':
-          'text/plain;charset=utf-8'
-      },
-
-      body: JSON.stringify({
-        action: 'create',
-        name: name || '(성함 미입력)',
-        phone,
-        time,
-        memo
-      })
+    `;
+    document.getElementById('f-submit').onclick = submitForm;
+    document.getElementById('f-phone').addEventListener('input', (e) => {
+      e.target.value = formatPhone(e.target.value);
+    });
+  }
+
+  function formatPhone(raw){
+    const digits = String(raw).replace(/[^0-9]/g, '').slice(0, 11);
+    if(digits.length < 4) return digits;
+    if(digits.startsWith('02')){
+      if(digits.length <= 5) return digits.slice(0,2) + '-' + digits.slice(2);
+      if(digits.length <= 9) return digits.slice(0,2) + '-' + digits.slice(2,5) + '-' + digits.slice(5);
+      return digits.slice(0,2) + '-' + digits.slice(2,6) + '-' + digits.slice(6,10);
     }
-  );
+    if(digits.length <= 7) return digits.slice(0,3) + '-' + digits.slice(3);
+    if(digits.length <= 10) return digits.slice(0,3) + '-' + digits.slice(3,6) + '-' + digits.slice(6);
+    return digits.slice(0,3) + '-' + digits.slice(3,7) + '-' + digits.slice(7,11);
+  }
 
+  function isValidPhone(value){
+    return /^0\d{1,2}-\d{3,4}-\d{4}$/.test(value);
+  }
 
-const data =
-  await res.json();
+  async function submitForm(){
+    const name = document.getElementById('f-name').value.trim();
+    const phone = formatPhone(document.getElementById('f-phone').value.trim());
+    const time = document.querySelector('input[name=time]:checked')?.value || '상관없어요';
+    const memo = document.getElementById('f-memo').value.trim();
+    const consented = document.getElementById('f-consent').checked;
+    const phoneErr = document.getElementById('phone-err');
+    const consentErr = document.getElementById('consent-err');
 
+    phoneErr.style.display = 'none';
+    consentErr.style.display = 'none';
 
-if(!data.ok){
+    if(!phone){
+      phoneErr.textContent = '연락처를 입력해주세요';
+      phoneErr.style.display = 'block';
+      return;
+    }
+    if(!isValidPhone(phone)){
+      phoneErr.textContent = '올바른 전화번호 형식이 아니에요 (예: 010-1234-5678)';
+      phoneErr.style.display = 'block';
+      return;
+    }
+    if(!consented){
+      consentErr.style.display = 'block';
+      return;
+    }
 
-  throw new Error('저장 실패');
+    const btn = document.getElementById('f-submit');
+    btn.disabled = true;
+    btn.textContent = '보내는 중...';
 
-}
+    try{
+      const res = await fetch(SHEET_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          action: 'create',
+          name: name || '(성함 미입력)',
+          phone, time, memo
+        })
+      });
+      const data = await res.json();
+      if(!data.ok){ throw new Error('저장 실패'); }
+      view = 'done';
+      render();
+    }catch(e){
+      btn.disabled = false;
+      btn.textContent = '상담 신청하기';
+      consentErr.textContent = '전송에 실패했어요. 다시 시도해주세요.';
+      consentErr.style.display = 'block';
+    }
+  }
 
+  function renderDone(){
+    app.innerHTML = `
+      <div class="card done">
+        <div class="emoji">🍯</div>
+        <h2>신청 완료!</h2>
+        <p>말씀해주신 시간에 맞춰<br/>편하게 연락드릴게요. 감사합니다.</p>
+      </div>
+    `;
+  }
 
-view = 'done';
-
-render();
-```
-
-}catch(e){
-
-```
-btn.disabled = false;
-
-btn.textContent =
-  '상담 신청하기';
-
-
-consentErr.textContent =
-  '전송에 실패했어요. 다시 시도해주세요.';
-
-
-consentErr.style.display =
-  'block';
-```
-
-}
-
-}
-
-function renderDone(){
-
-app.innerHTML = `
-
-```
-<div class="card done">
-
-  <div class="emoji">
-    🍯
-  </div>
-
-  <h2>
-    신청 완료!
-  </h2>
-
-  <p>
-    말씀해주신 시간에 맞춰<br>
-    편하게 연락드릴게요. 감사합니다.
-  </p>
-
-</div>
-```
-
-`;
-
-}
-
-render(); </script>
-
+  render();
+  </script>
 </body>
 </html>
